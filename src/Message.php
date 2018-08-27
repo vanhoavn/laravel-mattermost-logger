@@ -58,7 +58,7 @@ class Message
     public function mentions()
     {
         $mentions = array_map(function ($mention) {
-            return str_start('@', $mention);
+            return str_start($mention, '@');
         }, $this->options['mentions']);
 
         return implode(', ', $mentions);
