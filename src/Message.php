@@ -49,10 +49,19 @@ class Message
         $title = sprintf('**[%s]** %s', $this->record['level_name'], $this->record['message']);
 
         if ($this->shouldMention()) {
-            $title .= sprintf(' (ping %s)', implode(', ', $this->options['mentions']));
+            $title .= sprintf(' (ping %s)', $this->mentions());
         }
 
         return $title;
+    }
+
+    public function mentions()
+    {
+        $mentions = array_map(function ($mention) {
+            return str_start('@', $mention);
+        }, $this->options['mentions']);
+
+        return implode(', ', $mentions);
     }
 
     public function addExceptionAttachment()
