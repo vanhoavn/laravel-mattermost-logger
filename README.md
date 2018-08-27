@@ -61,3 +61,7 @@ logger()->info('Some message', [
 
 throw new Exception('An exception occured');
 ```
+
+## TODO
+
+- Add the possibility to queue the HTTP request
