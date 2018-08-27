@@ -12,6 +12,7 @@ class MattermostHandler extends AbstractProcessingHandler
     {
         $this->options = array_merge([
             'channel' => 'town-square',
+            'icon_url' => null,
             'username' => 'Laravel Logs',
             'level' => Logger::INFO,
             'level_mention' => Logger::ERROR,
