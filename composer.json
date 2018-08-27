@@ -1,0 +1,19 @@
+{
+    "name": "thibaud-dauce/laravel-mattermost-logger",
+    "type": "library",
+    "require": {
+        "thibaud-dauce/mattermost-php": "^1.2",
+        "monolog/monolog": "^1.23"
+    },
+    "authors": [
+        {
+            "name": "Thibaud Dauce",
+            "email": "thibaud.dauce@pm.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ThibaudDauce\\MattermostLogger\\": "src"
+        }
+    }
+}
