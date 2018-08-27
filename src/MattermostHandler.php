@@ -25,6 +25,10 @@ class MattermostHandler extends AbstractProcessingHandler
 
     public function write(array $record)
     {
+        if ($record['level'] < $this->options['level']) {
+            return;
+        }
+
         $message = Message::fromArrayAndOptions($record, $this->options);
 
         $this->mattermost->send($message);
