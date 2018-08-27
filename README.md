@@ -20,7 +20,7 @@ Add the new driver in your `config/logging.php`:
 'mattermost' => [
     'driver' => 'custom',
     'via' => ThibaudDauce\MattermostLogger\MattermostLogger::class,
-    // options…
+    'webhook' => env('MATTERMOST_WEBHOOK'),
 ],
 ```
 
@@ -46,5 +46,5 @@ You can put options after the `driver` and `via` keys in your `config/logging.ph
 - **level** (INFO): below this level, the logs will not be sent to your Mattermost instance (by default debug logs are not sent)
 - **level_mention** (ERROR): above this level, the logs will be red in Mattermost and people will get pinged
 - **mentions** ([@here]): array of people to ping in case of log above **level_mention**
-- **short_field_length** (62): context content longer than this value will be put in a long field in Mattermost (see screenshot)
-- **max_attachment_length** (6000): truncate the contents below this value (Mattermost will refuse the payload otherwise) 
+- **short_field_length** (62): context content longer than this value will be put in a long field in Mattermost (two colmun layout, see screenshot)
+- **max_attachment_length** (6000): truncate the content below this value (Mattermost will refuse the payload otherwise)
