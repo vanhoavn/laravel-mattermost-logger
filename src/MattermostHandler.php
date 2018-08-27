@@ -11,6 +11,7 @@ class MattermostHandler extends AbstractProcessingHandler
     public function __construct(Mattermost $mattermost, $options = [])
     {
         $this->options = array_merge([
+            'webhook' => null,
             'channel' => 'town-square',
             'icon_url' => null,
             'username' => 'Laravel Logs',
@@ -32,6 +33,6 @@ class MattermostHandler extends AbstractProcessingHandler
 
         $message = Message::fromArrayAndOptions($record, $this->options);
 
-        $this->mattermost->send($message);
+        $this->mattermost->send($message, $this->options['webhook']);
     }
 }
