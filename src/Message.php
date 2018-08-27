@@ -34,7 +34,7 @@ class Message
         $this->message = (new MattermostMessage)
             ->channel($this->options['channel'])
             ->username($this->options['username'])
-            ->iconUrl($this->options['icon_url']);
+            ->iconUrl(url($this->options['icon_url']));
     }
 
     public function addTitleAttachment()
