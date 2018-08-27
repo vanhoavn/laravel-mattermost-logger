@@ -12,7 +12,7 @@ composer require thibaud-dauce/laravel-mattermost-logger
 
 ## Configuration
 
-### Log Driver
+### Add the log driver
 
 Add the new driver in your `config/logging.php`:
 
@@ -35,7 +35,7 @@ And update your stack in `config/logging.php`:
 
 Don't forget to put `LOG_CHANNEL=single` in your local and testing environments if you don't want to send logs to Mattermost during your tests.
 
-### Options
+### Options availables
 
 You can put options after the `driver` and `via` keys in your `config/logging.php`. All options with their defaults are in the code https://gitlab.com/thibauddauce/laravel-mattermost-logger/blob/master/src/MattermostHandler.php#L14-22
 
@@ -48,3 +48,16 @@ You can put options after the `driver` and `via` keys in your `config/logging.ph
 - **mentions** ([@here]): array of people to ping in case of log above **level_mention**
 - **short_field_length** (62): context content longer than this value will be put in a long field in Mattermost (two colmun layout, see screenshot)
 - **max_attachment_length** (6000): truncate the content below this value (Mattermost will refuse the payload otherwise)
+
+## Usage
+
+```php
+logger()->info('Some message', [
+    'context' => 'Some contex',
+    'an_array_of_things' => ['foo', 'bar', 'baz'],
+]);
+
+// Or
+
+throw new Exception('An exception occured');
+```
