@@ -32,6 +32,7 @@ class Message
     public function createBaseMessage()
     {
         $this->message = (new MattermostMessage)
+            
             ->channel($this->options['channel'])
             ->username($this->options['username'])
             ->iconUrl(url($this->options['icon_url']));
@@ -40,7 +41,8 @@ class Message
     public function addTitleAttachment()
     {
         $this->attachment(function (Attachment $attachment) {
-            $attachment->text($this->title());
+            $attachment->pretext($this->record['message'])
+                ->text($this->title());
         });
     }
 
