@@ -22,7 +22,7 @@ class Message
         $messageBuilder = new self($record, $options);
 
         $messageBuilder->createBaseMessage();
-        $messageBuilder->addTitleAttachment();
+        $messageBuilder->addTitleText();
         $messageBuilder->addExceptionAttachment();
         $messageBuilder->addContextAttachment();
 
@@ -32,18 +32,14 @@ class Message
     public function createBaseMessage()
     {
         $this->message = (new MattermostMessage)
-            
             ->channel($this->options['channel'])
             ->username($this->options['username'])
             ->iconUrl(url($this->options['icon_url']));
     }
 
-    public function addTitleAttachment()
+    public function addTitleText()
     {
-        $this->attachment(function (Attachment $attachment) {
-            $attachment->pretext($this->record['message'])
-                ->text($this->title());
-        });
+        $this->message->text($this->title());
     }
 
     public function title()
