@@ -2,6 +2,7 @@
 
 namespace ThibaudDauce\MattermostLogger;
 
+use Illuminate\Support\Facades\URL;
 use ThibaudDauce\Mattermost\Attachment;
 use ThibaudDauce\Mattermost\Message as MattermostMessage;
 
@@ -34,7 +35,7 @@ class Message
         $this->message = (new MattermostMessage)
             ->channel($this->options['channel'])
             ->username($this->options['username'])
-            ->iconUrl(url($this->options['icon_url']));
+            ->iconUrl(URL::to($this->options['icon_url']));
     }
 
     public function addTitleText()
