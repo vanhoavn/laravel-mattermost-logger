@@ -25,7 +25,7 @@ class MattermostHandler extends AbstractProcessingHandler
         $this->mattermost = $mattermost;
     }
 
-    public function write(array $record)
+    public function write(array $record): void
     {
         if ($record['level'] < $this->options['level']) {
             return;

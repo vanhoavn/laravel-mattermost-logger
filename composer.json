@@ -4,7 +4,7 @@
     "license": "MIT",
     "require": {
         "thibaud-dauce/mattermost-php": "^1.2",
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23|^2.0"
     },
     "authors": [
         {
