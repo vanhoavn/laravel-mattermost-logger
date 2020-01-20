@@ -35,7 +35,7 @@ class Message
         $this->message = (new MattermostMessage)
             ->channel($this->options['channel'])
             ->username($this->options['username'])
-            ->iconUrl(URL::to($this->options['icon_url']));
+            ->iconUrl($this->options['icon_url'] ? URL::to($this->options['icon_url']) : null);
     }
 
     public function addTitleText()
